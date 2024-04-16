@@ -1,22 +1,22 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <Sidebar />
+      <sidebar-menu />
       <div class="col container-fluid p-0 bg">
-        <AboutSection />
+        <about-section />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AboutSection from './components/AboutSection.vue';
-import Sidebar from './components/Sidebar.vue'
+import AboutSection from './components/about-section.vue'
+import SidebarMenu from './components/sidebar-menu.vue'
 
 export default {
   name: 'App',
   components: {
-    Sidebar,
+    SidebarMenu,
     AboutSection
   }
 }
