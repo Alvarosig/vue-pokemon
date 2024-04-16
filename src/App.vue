@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import AboutSection from './components/about-section.vue'
-import SidebarMenu from './components/sidebar-menu.vue'
+import AboutSection from './components/AboutSection.vue'
+import SidebarMenu from './components/SidebarMenu.vue'
 
 export default {
   name: 'App',
@@ -24,10 +24,10 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   padding: 0;
   min-height: 100vh;
@@ -36,4 +36,9 @@ export default {
 .bg {
   background-color: #f5f5f5;
 }
+
+.font-bold {
+  font-weight: bold;
+}
+
 </style>
