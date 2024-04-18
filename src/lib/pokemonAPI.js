@@ -6,12 +6,21 @@ const api = axios.create({
 })
 
 export const usePokemonData = () => {
-  const data = ref(null)
   const error = ref(null)
 
   const getAllPokemonData = async () => {
     try {
-      const response = await api.get('/pokemon') // Ajuste o limite conforme necessário
+      const response = await api.get('/pokemon?limit=151&offset=0') // Ajuste o limite conforme necessário
+      
+      return response.data
+    } catch (err) {
+      error.value = err
+    }
+  }
+
+  const getPokemonData = async (pokemonId) => {
+    try {
+      const response = await api.get(`/pokemon/${pokemonId}`)
       return response.data
 
     } catch (err) {
@@ -19,11 +28,11 @@ export const usePokemonData = () => {
     }
   }
 
-  const getPokemonData = async () => {
+  const getAbilityDescription = async (abilityId) => {
     try {
-      const response = await api.get(`/pokemon/1`)
+      const response = await api.get(`/ability/${abilityId}`)
+      
       return response.data
-
     } catch (err) {
       error.value = err
     }
@@ -39,5 +48,5 @@ export const usePokemonData = () => {
     }
   }
 
-  return { data, error, getAllPokemonData, getPokemonData, getPokemonEvolution }
+  return { getAllPokemonData, getPokemonData, getPokemonEvolution, getAbilityDescription }
 }
