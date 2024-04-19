@@ -1,9 +1,6 @@
-import axios from "axios"
-import { ref } from "vue"
 
-const api = axios.create({
-  baseURL: "https://pokeapi.co/api/v2",
-})
+import { ref } from "vue"
+import { api } from "./axios"
 
 export const usePokemonData = () => {
   const error = ref(null)
@@ -18,9 +15,9 @@ export const usePokemonData = () => {
     }
   }
 
-  const getPokemonData = async (pokemonId) => {
+  const getPokemonData = async (url) => {
     try {
-      const response = await api.get(`/pokemon/${pokemonId}`)
+      const response = await api.get(url)
       return response.data
 
     } catch (err) {
@@ -28,9 +25,9 @@ export const usePokemonData = () => {
     }
   }
 
-  const getAbilityDescription = async (abilityId) => {
+  const getAbilityDescription = async (url) => {
     try {
-      const response = await api.get(`/ability/${abilityId}`)
+      const response = await api.get(url)
       
       return response.data
     } catch (err) {

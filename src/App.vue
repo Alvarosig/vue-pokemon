@@ -1,10 +1,8 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <sidebar-menu />
-      <div class="col container-fluid p-0 bg">
-        <about-section />
-      </div>
+  <div class="h-100 d-flex w-100 overflow-hidden">
+    <sidebar-menu />
+    <div class="p-5 overflow-y-auto bg h-100 flex-fill">
+      <about-section />
     </div>
   </div>
 </template>
@@ -30,7 +28,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   padding: 0;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100%;
+  overflow-y: hidden
 }
 
 .bg {
@@ -40,5 +40,4 @@ export default {
 .font-bold {
   font-weight: bold;
 }
-
 </style>

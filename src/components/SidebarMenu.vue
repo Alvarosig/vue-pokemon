@@ -1,23 +1,22 @@
 <template>
-  <div class="col-auto col-md-4 col-lg-3 min-vh-100 bg-white" style="border-right: 2px solid #2c3e50;">
-    <div class="p-2">
+  <div class="col-auto col-md-4 col-lg-3 min-vh-100 bg-white h-100 overflow-hidden "
+    style="border-right: 2px solid #2c3e50;">
+    <div class="p-2 h-100 overflow-hidden ">
       <div
         class="d-flex flex-column text-decoration-none mt-1 align-items-center justify-content-center text-white border-bottom p-3">
         <span class="fs-4 d-none d-sm-inline text-dark font-bold">{{ pokemonList.count }} Pokémon</span>
 
         <label hidden for="searchPokemonField" class="form-label">Search Pokémon</label>
-        <input 
-        type="text" 
-        id="searchPokemonField"
-        placeholder="Search Pokemon"
-        class="form-control w-100 mt-2 bg-black/50 text-dark placeholder-secondary/50 font-bold"
-        v-model="searchPokemonField"
-        />
+        <input type="text" id="searchPokemonField" placeholder="Search Pokemon"
+          class="form-control w-100 mt-2 bg-black/50 text-dark placeholder-secondary/50 font-bold"
+          v-model="searchPokemonField" />
       </div>
 
-      <ul class="nav nav-pills flex-column mt-4">
-        <list-pokemon :pokemonsFiltered="pokemonsFiltered" />
-      </ul>
+      <div class="overflow-y-scroll h-100">
+        <ul class="nav nav-pills d-flex flex-column mt-4">
+          <list-pokemon :pokemonsFiltered="pokemonsFiltered" />
+        </ul>
+      </div>
     </div>
   </div>
 </template>

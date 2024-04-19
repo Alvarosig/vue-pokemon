@@ -1,5 +1,5 @@
 <template>
-  <li class="nav-item bg-hover" v-for="pokemon in pokemonsFiltered" :key="pokemon.name">
+  <li class="nav-item bg-hover" v-for="pokemon in pokemonsFiltered" :key="pokemon.name" @click="getPokemondSelected(pokemon)" >
     <a href="#" class="nav-link d-flex text-dark gap-3 border-bottom">
       <img
         :src="getPokemonImageUrl(pokemon)"
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import { usePokemonData } from '@/lib/pokemonAPI'
+
 export default {
   name: 'ListPokemon',
   props: ['pokemonsFiltered'],
@@ -27,6 +29,19 @@ export default {
       const id = pokemon.url.split('/')[6]
       return id
     },
+
+    async getPokemondSelected(pokemon) {
+      const { getPokemonData, getAbilityDescription } = usePokemonData()
+
+      const response = await getPokemonData(pokemon.url)
+      for(const item of response.abilities) {
+        const ability = await getAbilityDescription(item.ability.url)
+
+        item.ability.description = ability
+      }
+
+      this.$store.commit('setSelectedPokemon', response)
+    }
   }
 }
 </script>

@@ -1,20 +1,16 @@
 <template>
   <div class="card" style="width: 18rem;">
     <div class="d-flex justify-content-center align-items-center">
-      <img class="card-img-top img-fluid" :src="pokemon.img" :alt="pokemon.name">
+      <img class="card-img-top img-fluid p-4" style="height: 200px" :src="pokemon.sprites.other.dream_world.front_default" :alt="pokemon.name">
     </div>
     <div class="card-body pt-0">
-      <h5 class="card-title font-bold text-capitalize">{{ pokemon.name }}</h5>
-      <p class="card-text mb-1">{{ pokemon.id }}</p>
+      <h5 class="card-title font-bold text-capitalize text-center">{{ pokemon.name }}</h5>
+      <p class="card-text mb-1 text-center">{{ pokemon.id }}</p>
       <div class="d-flex gap-3 align-items-center justify-content-center">
-        <span 
-        :class="['py-1 px-3 rounded small text-white text-capitalize', category.type.name]" 
-        v-for="category in pokemon.types"
-        :key="category.type.name"
-        
-        >
-        {{ category.type.name }}
-      </span>
+        <span :class="['py-1 px-3 rounded small text-white text-capitalize', category.type.name]"
+          v-for="category in pokemon.types" :key="category.type.name">
+          {{ category.type.name }}
+        </span>
       </div>
     </div>
   </div>
