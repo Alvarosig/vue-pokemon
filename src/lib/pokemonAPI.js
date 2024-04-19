@@ -35,9 +35,9 @@ export const usePokemonData = () => {
     }
   }
 
-  const getPokemonEvolution = async (evolutionId) => {
+  const getPokemonEvolution = async (url) => {
     try {
-      const response = await api.get(`/evolution-chain/${evolutionId}`)
+      const response = await api.get(`/evolution-chain/${url}`)
       return response.data
       
     } catch (err) {

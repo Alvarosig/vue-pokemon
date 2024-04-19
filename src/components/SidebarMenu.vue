@@ -4,7 +4,10 @@
     <div class="p-2 h-100 overflow-hidden ">
       <div
         class="d-flex flex-column text-decoration-none mt-1 align-items-center justify-content-center text-white border-bottom p-3">
-        <span class="fs-4 d-none d-sm-inline text-dark font-bold">{{ pokemonList.count }} Pokémon</span>
+        <span class="fs-4 d-none d-sm-inline text-dark font-bold">
+          {{ pokemonList.count }} Pokémons
+          <img src="/pokemon-icon.ico" alt="">
+        </span>
 
         <label hidden for="searchPokemonField" class="form-label">Search Pokémon</label>
         <input type="text" id="searchPokemonField" placeholder="Search Pokemon"

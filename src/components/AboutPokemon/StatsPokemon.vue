@@ -7,7 +7,7 @@
 
     <div class="d-flex flex-column gap-2 mt-2">
       <div class="d-flex gap-1 align-items-center w-100" v-for="(stat, index) in stats" :key="index">
-        <span class="text-nowrap font-bold flex-shrink-0 text-uppercase " style="width: 120px;">{{ stat.stat.name }}:</span>
+        <span class="text-nowrap font-bold flex-shrink-0 text-uppercase " style="width: 130px;">{{ stat.stat.name }}:</span>
         <div class="text-nowrap flex-shrink-0" style="width: 40px;">{{ stat.base_stat }}</div>
         <div class="progress w-100" style="height: 10px;">
           <div class="progress-bar bg-warning" :style="{width: calculateWidth(stat.base_stat)}" role="progressbar" :aria-valuenow="stat.base_stat" aria-valuemin="0"

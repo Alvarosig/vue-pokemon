@@ -3,13 +3,12 @@
     <card-pokemon :pokemon="selectedPokemon" />
 
     <div class="d-flex justify-content-center gap-4 align-items-start mx-3 w-100">
+      <abilities-pokemon :abilities="selectedPokemon.abilities" />
+
       <div class="d-flex flex-column gap-4">
-        <abilities-pokemon :abilities="selectedPokemon.abilities" />
-        <evolution-pokemon />
+        <stats-pokemon :stats="selectedPokemon.stats" />
+        <evolution-pokemon :pokemon="selectedPokemon" />
       </div>
-
-      <stats-pokemon :stats="selectedPokemon.stats" />
-
     </div>
   </div>
 </template>
@@ -19,9 +18,7 @@ import CardPokemon from './AboutPokemon/CardPokemon.vue'
 import StatsPokemon from './AboutPokemon/StatsPokemon.vue'
 import AbilitiesPokemon from './AboutPokemon/AbilitiesPokemon.vue'
 import EvolutionPokemon from './AboutPokemon/EvolutionPokemon.vue'
-import { watch } from 'vue'
 import { mapState } from 'vuex'
-import { useStore } from 'vuex'
 
 export default {
   name: 'AboutSection',
@@ -36,14 +33,6 @@ export default {
     ...mapState(['selectedPokemon']),
   },
 
-  setup() {
-    const store = useStore()
-
-    watch(() => store.state.selectedPokemon, (newVal) => {
-      console.log(JSON.parse(JSON.stringify(newVal)))
-    })
-
-  }
 }
 </script>
 
