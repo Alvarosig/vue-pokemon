@@ -40,4 +40,13 @@ export default {
 .font-bold {
   font-weight: bold;
 }
+
+.pokemon-background {
+  background-color: #f1f1f1; 
+  border-radius: 50%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0;
+}
 </style>

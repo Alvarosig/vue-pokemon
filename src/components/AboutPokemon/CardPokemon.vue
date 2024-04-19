@@ -1,7 +1,9 @@
 <template>
   <div class="card" style="width: 18rem;">
     <div class="d-flex justify-content-center align-items-center">
-      <img class="card-img-top img-fluid p-4" style="height: 200px" :src="pokemon.sprites.other.dream_world.front_default" :alt="pokemon.name">
+      <div class="pokemon-background size">
+        <img class="card-img-top img-fluid p-4" style="height: 200px" :src="pokemon.sprites.other.dream_world.front_default" :alt="pokemon.name">
+      </div>
     </div>
     <div class="card-body pt-0">
       <h5 class="card-title font-bold text-capitalize text-center">{{ pokemon.name }}</h5>
@@ -27,6 +29,11 @@ export default {
 <style scoped>
 img {
   padding: 0.5rem;
+}
+
+.size {
+  width: 220px;
+  height: 220px;
 }
 
 .normal {

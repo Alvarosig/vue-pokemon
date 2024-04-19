@@ -7,12 +7,16 @@
 
     <div class="d-flex gap-3 align-items-center justify-content-center ">
       <div class="d-flex flex-column gap-1">
-        <img :src="pokemon.sprites.front_default" :alt="pokemon.name" style="height: 100px; width: 100px;">
+        <div class="pokemon-background">
+          <img :src="pokemon.sprites.front_default" :alt="pokemon.name" style="height: 100px; width: 100px;">
+        </div>
         <span class="text-capitalize text-center font-bold">{{ pokemon.name }}</span>
       </div>
       <ArrowRight class="text-secondary" size="24" />
       <div class="d-flex flex-column gap-1" v-if="evolution">
-        <img :src="evolution.image" :alt="evolution.name" style="height: 100px; width: 100px;">
+        <div class="pokemon-background">
+          <img :src="evolution.image" :alt="evolution.name" style="height: 100px; width: 100px;">
+        </div>
         <span class="text-capitalize text-center font-bold">{{ evolution.name }}</span>
       </div>
       <div v-else>
