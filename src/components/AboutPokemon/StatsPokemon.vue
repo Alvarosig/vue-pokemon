@@ -2,7 +2,7 @@
   <div class="p-3 bg-white d-flex flex-column border rounded stats">
     <div class="d-flex gap-1 border-bottom">
       <AlignLeft class="text-warning" size="24" />
-      <h3 class="text-dark font-bold fs-5">Base Stats</h3>
+      <h3 class="text-dark font-bold fs-5">{{ $t('pokemon.stats')}}</h3>
     </div>
 
     <div class="d-flex flex-column gap-2 mt-2">
