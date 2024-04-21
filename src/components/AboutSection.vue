@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column gap-4 align-items-center p-5 h-100" v-if="selectedPokemon">
+  <div class="d-flex flex-column gap-4 align-items-center p-5 h-100 " v-if="selectedPokemon">
     <card-pokemon :pokemon="selectedPokemon" />
 
     <div class="d-flex justify-content-center gap-4 align-items-start mx-3 w-100">
@@ -45,4 +45,5 @@ export default {
 .stats {
   width: 320px;
 }
+
 </style>

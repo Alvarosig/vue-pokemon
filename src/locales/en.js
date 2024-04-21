@@ -1,6 +1,11 @@
 export const en = {
   input: {
     search: 'Search Pokémon',
+    option: {
+      head: 'Select a filter',
+      type: 'Type',
+      specie: 'Specie',
+    }
   },
   pokemon: {
     abilities: 'Abilities and Effects',

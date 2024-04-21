@@ -35,6 +35,15 @@ export const usePokemonData = () => {
     }
   }
 
+  const getPokemonTypes = async (url) => {
+    try {
+      const response = await api.get(url)
+      return response.data
+    } catch (err) {
+      error.value = err
+    }
+  }
+
   const getPokemonEvolution = async (url) => {
     try {
       const response = await api.get(`/evolution-chain/${url}`)
@@ -45,5 +54,5 @@ export const usePokemonData = () => {
     }
   }
 
-  return { getAllPokemonData, getPokemonData, getPokemonEvolution, getAbilityDescription }
+  return { getAllPokemonData, getPokemonData, getPokemonEvolution, getAbilityDescription, getPokemonTypes }
 }

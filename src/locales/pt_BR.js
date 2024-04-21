@@ -1,6 +1,11 @@
 export const pt_BR = {
   input: {
     search: 'Pesquisar Pokemon',
+    option: {
+      head: 'Selecione um filtro',
+      type: 'Tipo',
+      specie: 'Espécie',
+    }
   },
   pokemon: {
     abilities: 'Habilidades e Efeitos',

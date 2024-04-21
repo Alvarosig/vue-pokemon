@@ -1,7 +1,7 @@
 <template>
   <div class="h-100 d-flex w-100 overflow-hidden">
     <sidebar-menu />
-    <div class="p-5 overflow-y-auto bg h-100 flex-fill">
+    <div class="p-5 overflow-y-auto bg h-100 flex-fill bg-custom">
       <about-section />
     </div>
   </div>
@@ -48,5 +48,12 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 4px 0;
+}
+
+.bg-custom {
+  background-image: url('@/assets/pokeball.svg');
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
+  background-position: right -25% top -60%;
 }
 </style>
