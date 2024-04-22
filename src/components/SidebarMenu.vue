@@ -1,30 +1,39 @@
 <template>
-  <div class="col-auto col-md-4 col-lg-3 min-vh-100 bg-white h-100 overflow-hidden "
-    style="border-right: 2px solid #2c3e50;">
+  <button v-if="!isSidebarOpen" @click="setIsSidebarOpen()"
+    class="position-absolute cursor-pointer top-0 left-0 rounded-1 border d-flex justify-content-center align-items-center z-3"
+    style="width: 48px; height: 48px;">
+    <Menu />
+  </button>
+
+  <div v-else class="z-3 position-md-static min-vh-100 bg-white h-100 overflow-hidden d-flex flex-column"
+    style="border-right: 2px solid #2c3e50; width: 330px;">
+
+    <button @click="setIsSidebarOpen()"
+      class="position-absolute top-0 left-0 rounded-1 cursor-pointer border d-flex justify-content-center align-items-center "
+      style="width: 48px; height: 48px;">
+      <Menu />
+    </button>
 
     <language-selector @setLocale="setLocale" />
 
-    <div class="p-2 h-100 overflow-hidden ">
-      <div
-        class="d-flex flex-column text-decoration-none mt-1 align-items-center justify-content-center text-white border-bottom p-3">
-        <span class="fs-4 d-none d-sm-inline text-dark font-bold">
-          {{ pokemonList.count }} Pokémons
-          <img src="/pokemon-icon.ico" alt="">
-        </span>
+    <div
+      class="d-flex flex-column text-decoration-none mt-1 align-items-center justify-content-center text-white border-bottom p-3">
+      <span class="fs-4 d-none d-sm-inline text-dark font-bold">
+        {{ pokemonList.count }} Pokémons
+        <img src="/pokemon-icon.ico" alt="">
+      </span>
 
-        <pokemon-filter :pokemonTypes="pokemonTypes" v-model="filterType" />
+      <pokemon-filter :pokemonTypes="pokemonTypes" v-model="filterType" />
 
-        <label hidden for="searchPokemonField" class="form-label">{{ $t('input.search') }}</label>
-        <input type="text" id="searchPokemonField" :placeholder="$t('input.search')"
-          class="form-control w-100 mt-2 bg-black/50 text-dark placeholder-secondary/50 font-bold"
-          v-model="searchPokemonField" />
+      <label hidden for="searchPokemonField" class="form-label">{{ $t('input.search') }}</label>
+      <input type="text" id="searchPokemonField" :placeholder="$t('input.search')"
+        class="form-control w-100 mt-2 bg-black/50 text-dark placeholder-secondary/50 font-bold"
+        v-model="searchPokemonField" />
+    </div>
 
-      </div>
-
-      <div class="overflow-y-scroll h-100">
-        <ul class="nav nav-pills d-flex flex-column mt-4">
-          <list-pokemon :pokemonsFiltered="pokemonsFiltered" />
-        </ul>
+    <div class="overflow-y-scroll h-100 overflow-x-hidden ">
+      <div class="nav nav-pills d-flex flex-column ">
+        <list-pokemon :pokemonsFiltered="pokemonsFiltered" />
       </div>
     </div>
   </div>
@@ -36,6 +45,8 @@ import { onMounted, reactive, ref, computed } from 'vue'
 import ListPokemon from './Sidebar/ListPokemon.vue'
 import LanguageSelector from './Sidebar/LanguageSelector.vue'
 import PokemonFilter from './Sidebar/PokemonFilter.vue'
+import { mapState } from 'vuex'
+import { Menu } from 'lucide-vue-next';
 
 export default {
   name: 'SidebarMenu',
@@ -43,6 +54,11 @@ export default {
     ListPokemon,
     LanguageSelector,
     PokemonFilter,
+    Menu,
+  },
+
+  computed: {
+    ...mapState(['isSidebarOpen']),
   },
 
   methods: {
@@ -50,6 +66,9 @@ export default {
       this.$i18n.locale = locale
       this.$store.commit('setLanguage', locale)
     },
+    setIsSidebarOpen() {
+      this.$store.commit('setIsSidebarOpen', !this.isSidebarOpen)
+    }
   },
 
   setup() {
@@ -98,3 +117,17 @@ export default {
 
 }
 </script>
+
+<style>
+
+.position-md-static {
+  position: absolute;
+}
+
+@media (min-width: 768px) {
+  .position-md-static {
+    position: static;
+  }
+}
+
+</style>

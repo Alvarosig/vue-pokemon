@@ -1,7 +1,7 @@
 <template>
-  <div class="h-100 d-flex w-100 overflow-hidden">
+  <div class="d-flex w-100 overflow-hidden vh-100 ">
     <sidebar-menu />
-    <div class="p-5 overflow-y-auto bg h-100 flex-fill bg-custom">
+    <div class="overflow-y-auto bg h-100 flex-fill bg-custom">
       <about-section />
     </div>
   </div>
@@ -55,5 +55,11 @@ export default {
   background-repeat: no-repeat;
   background-size: 600px 600px;
   background-position: right -25% top -60%;
+}
+
+@media (max-width: 768px) {
+  .bg-custom {
+    background-image: none;
+  }
 }
 </style>

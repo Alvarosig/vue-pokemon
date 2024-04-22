@@ -1,5 +1,5 @@
 <template>
-  <div class="p-3 bg-white d-flex flex-column border rounded" style="max-width: 500px;">
+  <div class="p-3 bg-white d-flex flex-column border rounded w-100 " style="max-width: 500px;">
     <div class="d-flex gap-1 border-bottom">
       <BadgeAlert fill="#ffc107" class="text-black" />
       <h3 class="text-dark font-bold fs-5">

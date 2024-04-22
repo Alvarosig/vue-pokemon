@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     selectedPokemon: null,
-    language: 'en'
+    language: 'en',
+    isSidebarOpen: true,
   },
   getters: {
     getSelectedPokemon(state) {
@@ -11,6 +12,9 @@ export default createStore({
     },
     getLanguage(state) {
       return state.language
+    },
+    getIsSidebarOpen(state) {
+      return state.isSidebarOpen
     }
   },
   mutations: {
@@ -19,6 +23,9 @@ export default createStore({
     },
     setLanguage(state, language) {
       state.language = language
+    },
+    setIsSidebarOpen(state, isOpen) {
+      state.isSidebarOpen = isOpen
     }
   },
 })

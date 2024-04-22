@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem;">
+  <div class="card z-0" style="width: 18rem;">
     <div class="d-flex justify-content-center align-items-center">
       <div class="pokemon-background size">
         <img class="card-img-top img-fluid p-4" style="height: 200px" :src="pokemon.sprites.other.dream_world.front_default" :alt="pokemon.name">

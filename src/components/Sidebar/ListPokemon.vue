@@ -14,10 +14,15 @@
 
 <script>
 import { usePokemonData } from '@/lib/pokemonAPI'
+import { mapState } from 'vuex'
 
 export default {
   name: 'ListPokemon',
   props: ['pokemonsFiltered'],
+
+  computed: {
+    ...mapState(['isSidebarOpen']),
+  },
 
   methods: {
     getPokemonImageUrl(pokemon) {
@@ -41,6 +46,7 @@ export default {
       }
 
       this.$store.commit('setSelectedPokemon', response)
+      this.$store.commit('setIsSidebarOpen', !this.isSidebarOpen)
     }
   }
 }

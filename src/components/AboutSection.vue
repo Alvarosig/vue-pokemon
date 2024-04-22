@@ -1,18 +1,16 @@
 <template>
-  <div class="d-flex flex-column gap-4 align-items-center p-5 h-100 " v-if="selectedPokemon">
+  <div class="d-flex flex-column gap-4 align-items-center p-2 p-sm-5 h-100 overflow-y-auto " v-if="selectedPokemon">
     <card-pokemon :pokemon="selectedPokemon" />
 
-    <div class="d-flex justify-content-center gap-4 align-items-start mx-3 w-100">
-      <div class="d-flex flex-column gap-4">
+      <div class="d-flex flex-column flex-md-row justify-content-md-center gap-4 align-items-center align-items-md-start w-100 flex-fill">
         <abilities-pokemon :abilities="selectedPokemon.abilities" />
         <games-pokemon :games="selectedPokemon.game_indices" />
       </div>
 
-      <div class="d-flex flex-column gap-4">
+      <div class="d-flex flex-column gap-4 flex-md-row justify-content-md-center gap-4 align-items-center align-items-md-start w-100 flex-fill">
         <stats-pokemon :stats="selectedPokemon.stats" />
         <evolution-pokemon :pokemon="selectedPokemon" />
       </div>
-    </div>
   </div>
 </template>
 
